@@ -1,15 +1,38 @@
+let num = document.querySelector("input#caixa")
+let cx = document.querySelector("select#numeros")
+let res = document.querySelector("div#resultado")
+let valores = []
+
+function isNumero(n) {
+    return Number(n) >= 1 && Number(n) <= 100;
+}
+function inLista(n, l){
+    return l.includes(Number(n));
+
+}
 function adicionar(){
-    let cx = document.getElementById('caixa')
-    let num = document.getElementById('numeros')
-    if (cx.value.length === 0){
-        window.alert('Digite um numero!')
+    if (isNumero(num.value) && !inLista(num.value, valores)){
+
+        valores.push(Number(num.value))
+        let item = document.createElement('option')
+        item.text = `valor ${num.value} adicionado`
+        cx.appendChild(item)
+
     } else {
-        num.value = ''
-        let n = Number(cx.value)
-        let item = document.createElement('option')//cria um elemento dentro do select no html
-            item.text = `numero ${n} adicionado`//cria a tabuada enquanto contador for verdadeiro
-            item.value = `gerar${cx}`
-            num.appendChild(item) 
+        window.alert("Digite um numero valido!")
     }
+    num.value = ''
+    num.focus()
     
 }
+function analisar() {
+    if (valores.length == 0) {
+        window.alert('Adicione valores!')
+    } else {
+        let total = valores.length
+
+        res.innerHTML = ''
+        res.innerHTML    =       
+    }
+
+}      
