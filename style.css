@@ -47,3 +47,6 @@ p{
     margin: 10px;
     
 }
+select#numeros{
+    width: 150px;
+}
